@@ -8,7 +8,7 @@ const Welcome = ({navigation}) => {
     }
     return (  
             <View style={styles.main_container}>
-                <Image style={styles.welcome_logo}source={require('../assets/images/icon.png')} />
+                <Image style={styles.welcome_logo} source={require('../assets/images/icon.png')} />
                 <Text style={styles.welcome_txt}>Welcome To Breaking Bad</Text>
                 <BreakingBadButton onPress={onNext} title="Next >" size="sm" backgroundColor="#007bff"  isLinearGradien= 'true'/>
             </View>
