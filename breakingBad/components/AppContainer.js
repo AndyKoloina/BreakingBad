@@ -20,7 +20,7 @@ const AppContainer = (props) => {
     if(characterList.isFetching) {
         content = <View style={styles.loading}><ActivityIndicator size="large" color="white" /></View>
     } else {
-        content = <CharacterList navigation ={props.navigation}data ={characterList}/>
+        content = <CharacterList navigation ={props.navigation} data={characterList}/>
     }
     return (
         <View style={{flex: 1 ,backgroundColor:'#302004',alignItems: 'center'}}>
