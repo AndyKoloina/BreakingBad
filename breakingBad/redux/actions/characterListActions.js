@@ -3,6 +3,7 @@ import {
     FETCHING_CHARACTER_REQUEST,
     FETCHING_CHARACTER_SUCCESS,
     FETCHING_CHARACTER_DETAILS_SUCCESS,
+    CLEAR_DETAILS_CHARACTER,
     URL_GLOBAL,
     API_CHARACTER
 } from '../../constants'
@@ -24,6 +25,13 @@ export const fetchingCharacterDetailsSuccess = (json) => ({
     type: FETCHING_CHARACTER_DETAILS_SUCCESS,
     payload:json
 })
+
+export const clearCharacter = () => ({
+    type: CLEAR_DETAILS_CHARACTER,
+    payload: {}
+})
+
+
 export const fetchCharacterList = () => {
     return async dispatch => {
         dispatch(fetchingCharacterListRequest());
@@ -56,7 +64,7 @@ export const fetchCharacterList = () => {
                     )
                 )
             })
-            dispatch(fetchingCharacterListSuccess(responseBody))
+            dispatch(fetchingCharacterListSuccess(characterResult))
         } catch(error) {
             dispatch(fetchingCharacterListFailure(error))
         }
@@ -76,10 +84,15 @@ export const fetchCharacterById = id => {
                 }
             })
             const responseBody = await response.json()
-            console.log('responseBody details',responseBody)
-            dispatch(fetchingCharacterDetailsSuccess(responseBody))
+            console.log('respndeBody',responseBody)
+            await dispatch(fetchingCharacterDetailsSuccess(responseBody))
         } catch(error) {
            console.log(error)
         }
+    }
+}
+export const clearDetailsCharacter = () => {
+    return async dispatch => {
+        dispatch(clearCharacter())
     }
 }

@@ -36,7 +36,7 @@ AppContainer.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        characterList: state
+        characterList: state.characterReducer
     }
 }
 

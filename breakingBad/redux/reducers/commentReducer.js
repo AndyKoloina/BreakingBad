@@ -3,7 +3,7 @@ import {
 } from '../../constants'
 import { v4 as uuidv4 } from 'uuid';
 const initialState = {
-    comments: {}
+    comments: []
 }
 const commentReducer = (state = initialState ,action) => { 
     switch(action.type) {
