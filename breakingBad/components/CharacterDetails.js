@@ -18,18 +18,17 @@ const CharacterDetails = props => {
             clearData()
         }
     },[])
-
+    
     const loadRandomQuote = () => {
         getRandom()
     }
-    
     return (
        <View style={styles.main_container}>
             <View style={styles.character_details_container}>
                 <View style={{alignItems: 'center'}}>
                     <Image 
                         style={styles.img}
-                        source={{uri: character && character.img}}
+                        source={character === undefined ? require('../assets/images/imagedefault.jpg'):{uri: character && character.img}}
                     /> 
                 </View>
                 <View style={styles.character_details_description}>
